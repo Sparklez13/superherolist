@@ -1,0 +1,206 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.6 (Ubuntu 12.6-0ubuntu0.20.04.1)
+-- Dumped by pg_dump version 12.6 (Ubuntu 12.6-0ubuntu0.20.04.1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: categories; Type: TABLE; Schema: public; Owner: olg
+--
+
+CREATE TABLE public.categories (
+    letter character(1),
+    description text,
+    id integer NOT NULL
+);
+
+
+ALTER TABLE public.categories OWNER TO olg;
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: olg
+--
+
+CREATE SEQUENCE public.categories_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.categories_id_seq OWNER TO olg;
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: olg
+--
+
+ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
+
+
+--
+-- Name: records; Type: TABLE; Schema: public; Owner: olg
+--
+
+CREATE TABLE public.records (
+    category integer,
+    name text,
+    surname text,
+    fathername text,
+    registration_number text,
+    power_description text,
+    subtype text,
+    id integer NOT NULL
+);
+
+
+ALTER TABLE public.records OWNER TO olg;
+
+--
+-- Name: records_id_seq; Type: SEQUENCE; Schema: public; Owner: olg
+--
+
+CREATE SEQUENCE public.records_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.records_id_seq OWNER TO olg;
+
+--
+-- Name: records_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: olg
+--
+
+ALTER SEQUENCE public.records_id_seq OWNED BY public.records.id;
+
+
+--
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: olg
+--
+
+ALTER TABLE ONLY public.categories ALTER COLUMN id SET DEFAULT nextval('public.categories_id_seq'::regclass);
+
+
+--
+-- Name: records id; Type: DEFAULT; Schema: public; Owner: olg
+--
+
+ALTER TABLE ONLY public.records ALTER COLUMN id SET DEFAULT nextval('public.records_id_seq'::regclass);
+
+
+--
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: olg
+--
+
+COPY public.categories (letter, description, id) FROM stdin;
+T	телепат	1
+B	биоморф	2
+P	пирокинет	3
+\.
+
+
+--
+-- Data for Name: records; Type: TABLE DATA; Schema: public; Owner: olg
+--
+
+COPY public.records (category, name, surname, fathername, registration_number, power_description, subtype, id) FROM stdin;
+1	имя	фамилия	отчество	123465	опсисани	подтип	140
+3	ntcn	фамилия	отчество	123465	суперсилы	описание	178
+3	ntcn	фамилия	отчество	123465	суперсилы	описание	179
+3	ntcn	фамилия	отчество	123465	суперсилы	описание	185
+3	ntcn	фамилия	отчество	123465	суперсилы	описание	188
+3	ntcn	фамилия	отчество	123465	суперсилы	описание	189
+2	имя	фамилия	233	2323	суперсилы	подти	199
+\.
+
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: olg
+--
+
+SELECT pg_catalog.setval('public.categories_id_seq', 3, true);
+
+
+--
+-- Name: records_id_seq; Type: SEQUENCE SET; Schema: public; Owner: olg
+--
+
+SELECT pg_catalog.setval('public.records_id_seq', 199, true);
+
+
+--
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: olg
+--
+
+ALTER TABLE ONLY public.categories
+    ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: records records_pkey; Type: CONSTRAINT; Schema: public; Owner: olg
+--
+
+ALTER TABLE ONLY public.records
+    ADD CONSTRAINT records_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
+--
+
+GRANT ALL ON SCHEMA public TO superherolist;
+
+
+--
+-- Name: TABLE categories; Type: ACL; Schema: public; Owner: olg
+--
+
+GRANT ALL ON TABLE public.categories TO superherolist;
+
+
+--
+-- Name: SEQUENCE categories_id_seq; Type: ACL; Schema: public; Owner: olg
+--
+
+GRANT ALL ON SEQUENCE public.categories_id_seq TO superherolist;
+
+
+--
+-- Name: TABLE records; Type: ACL; Schema: public; Owner: olg
+--
+
+GRANT ALL ON TABLE public.records TO superherolist;
+
+
+--
+-- Name: SEQUENCE records_id_seq; Type: ACL; Schema: public; Owner: olg
+--
+
+GRANT ALL ON SEQUENCE public.records_id_seq TO superherolist;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

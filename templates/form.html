@@ -1,0 +1,20 @@
+<div class="recordForm hidden">
+    <form action="#" method="POST">
+        <p>Добавить запись</p>
+        <input class="hidden" name="id">
+        <label>Имя<input name="name" type="text" required></label>
+        <label>Фамилия<input name="surname" type="text required"></label>
+        <label>Отчество<input name="fathername" type="text required"></label>
+        <label>Регистрационный Номер<input name="registration_number" type="number" pattern="[0-9]+" required></label>
+        <label>Описание суперсил<input name="power_description" type="text" required></label>
+        <label>Категория<select name="category">
+            <option value="1">Телепат</option>
+            <option value="2">Биоморф</option>
+            <option value="3">Пирокинет</option>
+            </select>
+        </label>
+        <label>Подтип категории<input name="subtype" type="text" required></label>
+        <button>Отправить</button>
+        <button type="button" class="recordFormCloseBtn">Закрыть</button>
+    </form>
+</div>

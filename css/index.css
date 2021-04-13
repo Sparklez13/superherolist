@@ -1,0 +1,63 @@
+body {
+    font-family: sans-serif;
+    background-color: rgb(250, 248, 224);
+}
+
+.container {
+    display: flex;
+    /* flex-grow: 1; */
+    flex-direction: column;
+    max-width: 800px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.main table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 3px #161616ad solid;
+}
+
+.main table th {
+    background-color: rgb(124, 198, 248);
+}
+
+.main table td {
+    border: 1px #c4b9d4 solid;
+}
+
+.recordForm {
+    position: fixed;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: rgb(202, 242, 224);
+    z-index: 10;
+    text-align: left;
+    /* display: none; */
+}
+
+.recordForm form {
+    /* position: fixed; */
+}
+
+.recordForm label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    padding-top: 50px;
+    justify-content: space-between;
+}
+
+.hidden {
+    visibility: hidden;
+}

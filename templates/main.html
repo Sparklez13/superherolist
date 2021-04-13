@@ -1,0 +1,39 @@
+<div class="main">
+    <?php if ($records === null) :?>
+    <p>В системе пока нет записей</p>
+    <?php else: ?>
+    <table>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Номер регистрационного документа</th>
+            <th>Описание суперсил</th>
+            <th>Категория обладателя</th>
+            <th>Подтип категории</th>
+            <th>Выбрать</th>
+        </tr>
+        <?php foreach ($records as $record): ?>
+        <tr>
+            <td class="id" style="display:none"><?=$record->getId();?></td>
+            <td class="name"><?=$record->name?></td>
+            <td class="surname"><?=$record->surname?></td>
+            <td class="fathername"><?=$record->fathername?></td>
+            <td class="registration_number"><?=$record->registration_number?></td>
+            <td class="power_description"><?=$record->power_description?></td>
+            <td class="category"><?php
+                switch($record->category){
+                    case 1: echo 'Телепат';
+                    break;
+                    case 2: echo 'Биоморф';
+                    break;
+                    case 3: echo 'Пирокинет';
+                    break;
+                }?></td>
+            <td class="subtype"><?=$record->subtype?></td>
+            <td><input type="checkbox" class="selected" ></td>
+        </tr>
+            <?php endforeach ?>
+    </table>
+    <?php endif ?>
+</div>

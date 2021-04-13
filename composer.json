@@ -1,0 +1,12 @@
+{
+    "name": "olg_srd/super-hero-list",
+    "description": "CRUD приложение реестр супергероев",
+    "type": "project",
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "SuperHeroList\\": "php"
+        }
+    }
+}
